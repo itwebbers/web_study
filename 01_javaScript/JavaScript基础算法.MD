@@ -1,6 +1,6 @@
 # JavaScript基础算法题目
 
-1. 求1-100之间的质数
+*1. 求1-100之间的质数
 
 ```(javaScript)
 function getPrime(){
@@ -19,4 +19,16 @@ function getPrime(){
 }
 ```
 
-2. 
+*2. 计算数组中每个元素出现的次数
+
+```javaScript
+    var countedNum = arr.reduce((allchilds, child) => {
+        if(child in allchilds){
+            allchilds[child]++
+        }else {
+            allchilds[child] = 1
+        }
+
+        return allchilds;
+    }, {})
+```
