@@ -1,8 +1,8 @@
 # JavaScript基础算法题目
 
-*1. 求1-100之间的质数
+* ~1.求1-100之间的质数
 
-```(javaScript)
+```javaScript
 function getPrime(){
     for(var i = 1; i < 100; i++){
         var prime = 0;
@@ -19,7 +19,7 @@ function getPrime(){
 }
 ```
 
-*2. 计算数组中每个元素出现的次数
+* ~2.计算数组中每个元素出现的次数
 
 ```javaScript
     var countedNum = arr.reduce((allchilds, child) => {

@@ -18,6 +18,6 @@
 * [计算机](https://github.com/zander5211314/web_study/tree/master/09_%E8%AE%A1%E7%AE%97%E6%9C%BA)
 * [nodejs](https://github.com/zander5211314/web_study/tree/master/10_nodejs)
 * [web优化](https://github.com/zander5211314/web_study/tree/master/11_web%E4%BC%98%E5%8C%96)
-* [招聘](https://github.com/zander5211314/web_study/tree/master/13_%E6%8B%9B%E8%81%98)
 * [GitHub](https://github.com/zander5211314/web_study/tree/master/14_tools/02_github)
 * [git](https://github.com/zander5211314/web_study/tree/master/14_tools/01_git)
+* [招聘](https://github.com/zander5211314/web_study/tree/master/13_%E6%8B%9B%E8%81%98)
