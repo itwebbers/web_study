@@ -50,7 +50,7 @@
     .father {
         display: flex;
         algin-items: center;
-        justify-content: center;     
+        justify-content: center;
     }
 ```
 
