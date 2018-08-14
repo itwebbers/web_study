@@ -14,24 +14,47 @@
   4. PUT    更新资源
   5. HEAD   获得报文首部
 * POST与GET的区别
-    1. GET在浏览器回退是无害的，而POSt会再次请求
+    1. GET在浏览器回退是无害的，而POSt会再次请求  *
     2. GET产生的url地址可以被收藏，而post不可以
-    3. GET请求会被浏览器主动缓存，而POST不会，除非你主动收藏
+    3. GET请求会被浏览器主动缓存，而POST不会，除非你主动收藏    *
     4. GET请求只能进行url编码，而POST支持多种编码方式
-    5. GET请求参数会被完整保留在浏览器历史记录里，而post中的参数不会被保留
-    6. GET请求在URL中传送参数是有长度限制的，而POST没有限制
+    5. GET请求参数会被完整保留在浏览器历史记录里，而post中的参数不会被保留    *
+    6. GET请求在URL中传送参数是有长度限制的，而POST没有限制    *
     7. 对参数的数据类型，GET只接受ASCII字符，而POST没有限制
     8. GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息
-    9. GET参数通过URL传递，POST 放在Reuerst body中  
+    9. GET参数通过URL传递，POST 放在Reuerst body中      *
+
+  [get与post区别](https://www.oschina.net/news/77354/http-get-post-different)
+
+  [post与get请求](https://www.zhihu.com/question/28586791)
 * HTTP状态码
+  >> 100-199 信息性状态码
+  >> 200-299 成功状态码
+  >> 300-399 重定向状态码
+  >> 400-499 客户端状态码
+  >> 500-599 服务器状态码
+
+  `常用状态码`
+  * 200 成功
+  * 206 请求部分资源成功
+  * 301 当前请求重定向
+  * 302 请求的所有资源都重定向
+  * 304 已有缓存，可以继续使用
+  * 400 客户端请求语法错误，不能被服务端解析
+  * 401 请求未经授权
+  * 403 对请求页面的访问被禁止
+  * 404 请求资源不存在
+  * 500 服务器错误
+  * 503 请求未完成，服务器临时过载或当机
 * 什么是持久化链接
+  > 持久化连接减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务端的压力；另外，减少开销的那部分时间，使HTTP请求和响应能够更早的结束，这样web页面的显示速度也就相应的提高了。http版本1.1 支持keep-Alive
 * 什么是管线化
-
-## get与post区别
-
-[get与post区别](https://www.oschina.net/news/77354/http-get-post-different)
-
-> https://www.oschina.net/news/77354/http-get-post-different
-
-[post与get请求](https://www.zhihu.com/question/28586791)
-> https://www.zhihu.com/question/28586791
+  >> `原理` 建立在keep-Alive的基础上，将请求打包发出去，再将响应打包发回来
+  >> 管线化机制通过持久连接完成，仅HTTP/1.1支持此技术
+  >> 只有get和head请求可以进行管线化，而post则有限制
+  >> 初次连接的时候不应启动管线化，因为服务器不一定支持
+* cookie的状态管理
+  * 没有cookie状态下的请求
+  ![没有cookie状态下的请求](http://images2015.cnblogs.com/blog/938876/201612/938876-20161226142019148-996060572.png)
+  * 第二次以后（存在cookie信息状态）的请求
+  ![第二次以后（存在cookie信息状态）的请求](http://images2015.cnblogs.com/blog/938876/201612/938876-20161226142059726-1822981009.png)
