@@ -25,4 +25,12 @@
 [参考链接](https://segmentfault.com/a/1190000011519350)
 
 + vue的优点？
-    * 
+  + 低耦合    view和model互相解耦
+  + 高复用      组件化构建
+  + 独立开发    数据和视图完全独立开发
+  + 插件    生态中的第三方插件库完美结合
+
++ vue生命周期
+    [参考链接](https://segmentfault.com/a/1190000008010666)
+  + beforeCreate
+  + Created
