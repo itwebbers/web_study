@@ -1,6 +1,6 @@
 # vue 常见问题
 
-+ 列表将纳入详情页的传参问题
++ 列表页面进入详情页的传参问题
 
 ```javaScript
     <router-link :to="{path: 'detail', query: {id:1}}">前往detal页面</router-link>
@@ -23,3 +23,6 @@
 + vue设置按需加载
 
 [参考链接](https://segmentfault.com/a/1190000011519350)
+
++ vue的优点？
+    * 
