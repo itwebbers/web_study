@@ -12,3 +12,5 @@
 |updated|data变化时会被触发|
 |beforeDestroy|实例销毁前调用，依然可以使用|
 |destroyed|对data的方法不会再出发周期函数，说明此时vue实例已经接触了事件监听和dom的绑定，但是dom依然存在|
+
+[参考链接](https://juejin.im/post/5ad10800f265da23826e681e)

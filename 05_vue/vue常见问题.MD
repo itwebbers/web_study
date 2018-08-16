@@ -30,4 +30,66 @@
   + 独立开发    数据和视图完全独立开发
   + 插件    生态中的第三方插件库完美结合
 
-+ vue 组件通信
++ vue 路由跳转
+  + 声明式跳转（标签跳转）
+
+  ```JavaScript
+    <router-link :to"index"><router-link>
+  ```
+
+  + 编程式跳转（js跳转）
+
+  ```JavaScript
+    this.$router.push("index")
+  ```
+
+  ```html
+    <span @click="goRouter"></span>
+
+    methods: {
+        goRouter: function(){
+            this.$router.go("/login")
+        }
+    }
+  ```
+
+  + vue 按需加载
+    1. vue的异步组件
+
+    ```javaScript
+    {
+        name: "componentDemo",
+        path: "/componentDemo",
+        component: resolve => require(["./componentDemo"], resolve)
+    }
+    ```
+
+    2.使用ES6的import
+
+    ```JavaScript
+    const promiseComponents1 = () => import (/* webpackChunkName: 'importComponents' */ '../promiseComponents1')
+    const promiseComponents2 = () => import (/* webpackChunkName: 'importComponents' */ '../promiseComponents2')
+    ```
+
+    3.使用webpack提供的require.ensure -----(webapck特有的，已经被import取代)
+
+    ```JavaScript
+    {
+        name:"componentDemo",
+        path: "/componentDemo",
+        component: require.ensure([], () => resolve(require('../componentDemo')), chunkName)
+    }
+    ```
++ 常用的vue 指令
+
+    |指令|作用|
+    |:------:|:------:|
+    |v-if|判断是否隐藏|
+    |v-for|数据循环出来|
+    |v-bind|绑定一个属性|
+    |v-model|实现双向绑定|
+
++ vue 双向数据绑定原理
+
+    [参考链接](https://segmentfault.com/a/1190000006599500)
+    [参考链接](https://juejin.im/post/5adf0085518825673123da9a)

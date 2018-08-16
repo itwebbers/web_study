@@ -8,9 +8,13 @@
 `eventBus`
 3. 页面跳转传值
 
-```Vue
+```JavaScript
  <router-link tag="div" :to"{path:'/home', query:{id:1}}"></router-link>
 
  <!-- 获取 -->
  this.$route.query.id
 ```
+
+···
+4. 使用session Stroge缓存进行存值
+···
