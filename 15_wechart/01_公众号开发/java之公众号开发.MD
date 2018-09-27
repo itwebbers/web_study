@@ -5,7 +5,7 @@
 
 ```json
     {
-        "errcode": 40164, 
+        "errcode": 40164,
         "errmsg": "invalid ip ×××××, not in whitelist"
     }
 ```
