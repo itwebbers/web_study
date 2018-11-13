@@ -37,3 +37,9 @@ TypeError: VueLoaderPlugin is not a constructor
 * 忽略某个文件
 
 [ESLint 基本用法](https://github.com/wy-ei/notebook/issues/36)
+
+* Should router-link to a number work like router.go
+
+```javaScript
+    <router-link :to="-1" ><router-link />
+```
