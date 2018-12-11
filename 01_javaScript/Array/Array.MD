@@ -2,7 +2,7 @@
 
 ## 数组去重
 
-+ filter
+- filter
 
 ```javaScript
     Array.filter(function(val, index, arr){
@@ -10,7 +10,7 @@
     })
 ```
 
-+ ES6
+- ES6
 
 ```javaScript
     // 标准实现方法
@@ -21,7 +21,7 @@
     [...new Set(arr)]
 ```
 
-+ reduce
+- reduce
 
 ```javaScript
     let result = arr.sort().reduce((init, current) => {
@@ -31,6 +31,46 @@
 
         return init;
     }, [])
+```
+
+- push
+
+```JavaScript
+    let tempArray = []
+    for(var i = 0; i < arr.length; i++){
+        (function(i){
+            if(tempArrray[i].indexOf(arr[i] === -1)){
+                tempArray.push(aarr[i])
+            }
+        }(i))
+    }
+```
+
+- 排序去除相邻的重复元素
+
+```JAvaScript
+    let sortArray = arr.sort()
+    let tempArray = []
+    for(var i = 0; i < arr.length; i++){
+        if(sortArray[i] != sortArray[i+1]){
+            tempArray.push(sortArray[i])
+        }
+    }
+```
+
+- splice
+
+```JAvaScript
+    var len = arr.length;
+    for(let i = 0; i < len; i++) {
+        for(let j = i + 1; j < len; j++) {
+            if(arr[i] === arr[j]) {
+                arr.splice(i,1);
+                len--;
+                j--;
+            }
+        }
+    }
 ```
 
 ## 判断是否是数组

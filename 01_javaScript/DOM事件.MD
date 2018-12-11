@@ -41,7 +41,7 @@
 
 ```javaScript
     // 创建事件
-    var create = document.create("Event")
+    var create = document.createEvent("Event")
     // 定义事件名为'build'
     create.initEvent("build", true, true)
     // 监听事件
