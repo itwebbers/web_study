@@ -2,11 +2,13 @@
 
 ## 数组去重
 
+> [link to](http://www.cnblogs.com/lewiscutey/p/8269567.html)
+
 - filter
 
 ```javaScript
-    Array.filter(function(val, index, arr){
-        return Array.indexOf(val) === index;
+    arr.filter(function(val, index, arr){
+        return arr.indexOf(val) === index;
     })
 ```
 
