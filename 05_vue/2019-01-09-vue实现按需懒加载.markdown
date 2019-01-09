@@ -1,0 +1,83 @@
+---
+layout: posts
+title: 'vue 实现组件按需懒加载和动态组件'
+categories：
+  - vuejs
+tag: 'tags'
+tags: 
+  - vuejs
+  -JavaScript
+---
+
+1. 路由懒加载
+
+> 当你打包构建生产环境应用的时候，JavaScript 的包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分隔成不同的代码块，然后当路由被访问的时候才加载对应的组件，这样就完美高效了。
+
+- 异步组件
+
+> vue 允许你以一个工厂函数的方式定义你的组件，这个工厂函数会异步解析的组件定义。vue 只有在这个组件需要被渲染的时候才会触发该工厂函数，且会把结果缓存起来供未来重渲染。
+
+```js
+// 全局注册
+Vue.component('async-webpack-example', function(resolve) {
+  // 这个特殊的 `require`语法将会告诉webpack自动将你的构建代码切割成多个包，这些包会通过Ajax请求加载
+  require(['./my-async-component'], resolve)
+})
+
+// 局部注册 + ES6
+
+Vue({
+  // ...
+  component: {
+    'my-component': () => import('./my-async-component')
+  }
+})
+```
+
+- webpack 提供的 require.ensure
+  > 将其对应的文件拆分到一个单独的 bundle 中，此 bundle 会被异步加载<font color:red>require.ensure()是 webpack 特有的，已经被 import() 取代</font>
+
+```js
+require.ensure(
+  dependencies: String[],
+  callback: function(require),
+  errorCallback: function(error),
+  chunkName: String
+)
+```
+
+> > `注意：`如果你使用的是 Bable，你将需要添加 [syntax-dynamic-import](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/) 插件, 才能使 Bable 正常的解析语法
+
+- 结合以上两者，结论如下：
+  > vue 官方和 webpack 官方均推荐以下方式
+
+```js
+// 定义一个异步组件
+const Header = () => import('./Header.vue')
+
+// 路由配置
+const router = new Router({
+  routes: [
+    {
+      path: '/header',
+      component: Header
+    }
+  ]
+})
+```
+
+- 用 webpack 实现--把组件按组分块
+
+> 有时候完美想把某个路由下的所有组件都打包到同一个异步组件中，只需要使用命名一个 [chunk](https://webpack.js.org/guides/code-splitting/) 即可
+
+```js
+const Nav = () => {
+  /* webpackChunkName: "header" */ import('./nav.vue')
+}
+const Top = () => {
+  /* webpackChunkName: "header" */ import('./top.vue')
+}
+const Logo = () => {
+  /* webpackChunkName: "header" */ import('./logo.vue')
+}
+```
