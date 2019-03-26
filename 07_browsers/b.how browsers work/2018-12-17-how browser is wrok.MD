@@ -39,6 +39,6 @@
 
 > 渲染引擎一开始会从网络层请求文档的内容，内容的大小一般限制在 8000 个块以内。
 > 然后，进行如下的基本流程：
-> ![呈现引擎的基本流程](../../assets/images/flow.png)
+> [呈现引擎的基本流程](../../assets/images/flow.png)
 
 [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
