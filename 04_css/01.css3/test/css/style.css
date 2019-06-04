@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	font-size: 13px;
+	/* background-color: #333; */
+}
+
+.navbar-collapse {
+	width: 700px;
+	height: 42px;
+	margin: 100px auto;
+	background: #fff;
+	border-radius: 10px;
+	position: relative;
+}
+
+.navbar-collapse li {
+	width: 83px;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	float: left;
+	cursor: pointer;
+}
+.navbar-collapse li:hover {
+	color: blue;
+	font-weight: bold;
+}
+ul {
+	position: relative;
+}
+
+.navbar-collapse span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 83px;
+	height: 42px;
+	background: url(../images/cloud.png) no-repeat;
+}
+
+
+
+
+/* .navbar-inverse {
+    background-color: #222;
+    border-color: #080808;
+} */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+.navbar-header {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.navbar-toggle {
+    position: relative;
+	float: right;
+	padding: 9px 10px;
+	margin-top: 8px;
+	margin-right: 15px;
+	margin-bottom: 8px;
+	background-color: transparent;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+.navbar-toggle {
+	display: none;
+	border: 1px solid #cccccc;
+}
+.navbar-toggle .icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: #fff;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+.navbar-brand {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+	body {
+		background-color: skyblue;
+	}
+	.navbar-collapse {
+		display: none;
+	}
+
+	.navbar-toggle {
+		display: block;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	body {
+		background-color: #080808;
+	}
+	.navbar-brand {
+		display: none;
+	}
+}
