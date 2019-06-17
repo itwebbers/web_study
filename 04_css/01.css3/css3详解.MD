@@ -157,13 +157,79 @@ sup {
 
 > 讲解之前，先吹牛;css3，写之简单，用之谨慎,考虑兼容性问题；对于后端来说css可能是比较蛋疼的问题，但是css恰巧又是前端的一块砖；一个主要的作用就是减少js的操作
 
-## 二. 主要讲解以下常用模块
+
+## 二. css hack
+
+> 写css样式的时候，恐怕最头疼的就是各个浏览器下的兼容性问题，即css hack，不同的浏览器对css的解析结果是不同的，因此会导致相同的css输出的页面效果不同，这就需要css hack来解决浏览器局部的兼容性问题。使用css、 hack将会使用你的css代码部分失去作用，然后借助条件样式，使用其原css代码在一些浏览器解析，而css hack代码在符合条件要求的浏览器中替代原css那部分代码。
+
+1. css hack 基本概念
+   > css hack指各版本及各品牌浏览器之间对CSS解释后出现网页内容的误差(比如我们常说错位)的处理。由于各浏览器的内核不同，所以会造成一些误差就像JS一样，一个JS网页特效，在微软IE6、IE7、IE8浏览器有效果，但可能在火狐（Mozilla Firefox）谷歌浏览器无效，这样就叫做JS hack ，所以我们对于CSS来说他们来解决各浏览器对CSS解释不同所采取的区别不同浏览器制作不同的CSS样式的设置来解决这些问题就叫作CSS Hack。
+2. css hack常见形式
+   - 属性级Hack：
+    > 比如IE6能识别下划线”_”和星号” * “，IE7能识别星号” * “，但不能识别下划线”_”，而firefox两个都不能认识。
+   - 选择符级Hack：
+    > 比如IE6能识别*html .class{}，IE7能识别*+html .class{}或者*:first-child+html .class{}
+   - IE条件注释Hack：
+    > IE条件注释是微软从IE5开始就提供的一种非标准逻辑语句。比如针对所有IE：<!–[if IE]><!–您的代码–><![endif]–>，针对IE6及以下版本：<!–[if lt IE 7]><!–您的代码–><![endif]–>
+3. 各浏览器hack写法
+   - Firefox
+```css
+@-moz-document url-prefix() { 
+    .selector { 
+        property: value;
+    } 
+}
+```
+   - chrome and safari
+```css
+@media screen and (-webkit-min-device-pixel-ratio:0){     Selector { 
+        property: value;
+    } 
+}
+```
+   - IE9浏览器
+```css
+:root Selector {
+    property: value9;
+}
+```
+4. css hack 的奇淫技巧
+   - Firefox下给 div 设置 padding 后会导致 width 和 height 增加, 但IE不会.(可用!important解决)
+   - Firefox 和 IE 对 BOX 理解的差异导致相差 2px 的还有设为 float的div在ie下 margin加倍等问题
+   - 关于手形光标. cursor: pointer. 而hand 只适用于 IE
+   - 内容居中问题
+   - 作为外部 wrapper 的 div 不要定死高度, 最好还加上 overflow: hidden.以达到高度自适应
+    > 解决IE支持居中,mozilla中不能居中
+```css
+.container {
+    text-align: center;
+}
+#center { 
+    margin-right: auto; 
+    margin-left: auto; 
+}
+```
+   - 清除浮动
+```css
+#box:after{ 
+    content: ''; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+```
+   - 
+
+## 三. 主要讲解以下常用模块
 
 1. css3选择器
 2. css3媒体查询
 3. css3文本特效
+4. css3 过渡-transition
+5. css3 动画-animation
 
-### 三. 推荐css3的学习网站
+#### 四. 推荐css3的学习网站
 
 1. [Animate.css 动画](https://daneden.github.io/animate.css/)
 2. [css-HACKS](http://browserhacks.com/)

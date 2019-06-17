@@ -153,59 +153,49 @@ sup {
 </style>
 
 
-# 一. 文本特效
+# 一. 过渡-animation
 
-> 
+>  css animation 定义了怎么用关键帧规定时间内从一个css属性过渡到另一个css属性,形成动画效果.
 
-1. 文本溢出裁剪和省略号
-<style> 
-div.text
-{
-	white-space: nowrap; 
-	width: 12em; 
-	overflow: hidden; 
-	border: 1px solid #000000;
-}
-</style>
-<p>文字 使用 &quot;text-overflow:ellipsis&quot;:</p>
-<div class="text" style="text-overflow:ellipsis;">千秋大业一壶茶，万丈红尘三杯酒！</div>
-
-<p>文字 使用 &quot;text-overflow:clip&quot;:</p>
-<div class="text" style="text-overflow:clip;">千秋大业一壶茶，万丈红尘三杯酒！</div>
-
->
-
-2. 多行文本溢出处理跨浏览器的兼容性
-
-<style> 
-.more-line-text {
-    width: 60vw;
-    overflow : hidden;
-    border: 1px solid #ccc;
-    text-overflow: ellipsis;
-    padding: 0 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 30px;
-    height: 60px;
-}
-</style>
-<div class="more-line-text">这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏</div>
-
->
+1. @keyframes
+   > 规则通过在动画序列中定义关键帧（或waypoints）的样式来控制CSS动画序列中的中间步骤
+   > 使用方式有一下两种
 ```css
-.more-line-text {
-    width: 60vw;
-    overflow : hidden;
-    border: 1px solid #ccc;
-    text-overflow: ellipsis;
-    padding: 0 10px;
-    display: -webkit-box;
-    /* 使用 webkit-line-clamp 优雅降级 高度= 行高*行数 */
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 30px;
-    height: 60px;
+/* 关键词 `from` 相当于 0% ; */
+/* 关键词 `to` 相当于 100% ; */
+
+@keyframes identifier {
+  from {
+    width: 300%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes identifier {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 ```
+2. 配置动画
+   - animation-delay : 设置延迟执行动画的时间
+   - animation-direction : 设置动画是否反向运行或者回到开始位置
+   - animation-duration : 设置动画执行的周期
+   - animation-iteration-count : 设置动画是否重复执行 
+   - animation-name : 指定@keyframes命名的动画关键帧
+   - animation-play-state : 允许暂停和恢复动画
+   - animation-timing-function : 设置动画过渡的曲线方式
+   - animation-fill-mode : 指定动画执行前后如何为目标元素应用样式。
+3. 实现几个常见示例
+  > 详情见: animation.html 

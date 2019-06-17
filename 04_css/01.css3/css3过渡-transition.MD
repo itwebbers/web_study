@@ -153,59 +153,40 @@ sup {
 </style>
 
 
-# 一. 文本特效
+# 一. 过渡-transition
 
-> 
+>  css transition 提供了易中在更改css属性控制动画速度的方法.其可以让属性变化成一个持续一段事件的过程,不是立马更改生效.
 
-1. 文本溢出裁剪和省略号
+1. 可以过渡的css属性大致可以分为一下几类
+   > 切记不是所有的属性都支持css过渡
+   - 表示尺寸的属性: `width,padding,margin,border `, and so on
+   - 表示大小的属性: `font-size,line-height `, and so on
+   - 表示布局的属性: `flex,display,grid `, and so on
+   - 表示颜色和背景属性: `background,color,opacity `, and so on
+   - 表示元素位置属性: `offset,top,scroll `, and so on
+2. 共有四种属性
+   - transition-property : 指定过渡变化的css属性name
+   - transition-duration : 指定过渡的秒数
+   - transition-timing-function : 指定过渡的效果曲线
+   - transition-delay : 指定过渡延迟执行
+3. 实现几个常见示例
 <style> 
-div.text
-{
-	white-space: nowrap; 
-	width: 12em; 
-	overflow: hidden; 
-	border: 1px solid #000000;
-}
+    .transition-btn
+    {
+        display: inline-block;
+        padding: 6px;
+        border-radius: 2px;
+        background: #909399;
+        color: #fff;
+        text-align: center;
+        transform: scale(1);
+        transition: background 1s, transform 1s; 
+    }
+    .transition-btn:hover {
+        transform: scale(1.1);
+        background: #409EFF;
+        transition: all 1s;
+    }
 </style>
-<p>文字 使用 &quot;text-overflow:ellipsis&quot;:</p>
-<div class="text" style="text-overflow:ellipsis;">千秋大业一壶茶，万丈红尘三杯酒！</div>
 
-<p>文字 使用 &quot;text-overflow:clip&quot;:</p>
-<div class="text" style="text-overflow:clip;">千秋大业一壶茶，万丈红尘三杯酒！</div>
-
->
-
-2. 多行文本溢出处理跨浏览器的兼容性
-
-<style> 
-.more-line-text {
-    width: 60vw;
-    overflow : hidden;
-    border: 1px solid #ccc;
-    text-overflow: ellipsis;
-    padding: 0 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 30px;
-    height: 60px;
-}
-</style>
-<div class="more-line-text">这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏这里将会超出隐藏</div>
-
->
-```css
-.more-line-text {
-    width: 60vw;
-    overflow : hidden;
-    border: 1px solid #ccc;
-    text-overflow: ellipsis;
-    padding: 0 10px;
-    display: -webkit-box;
-    /* 使用 webkit-line-clamp 优雅降级 高度= 行高*行数 */
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 30px;
-    height: 60px;
-}
-```
+<span class="transition-btn">请把鼠标放到我上面</span>

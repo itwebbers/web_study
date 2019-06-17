@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transition</title>
+  <style>
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      transform: rotate(0deg);
+      transition: all ease-in-out 2s;
+    }
+    img:hover {
+      width: 240px;
+      height: 240px;
+      transform: rotate(360deg);
+      transition: all ease-in-out 2s;
+    }
+  </style>
+</head>
+<body class="container">
+  <h1>transition</h1>
+  <img src="./images/cute.gif" alt="">
+</body>
+</html>
