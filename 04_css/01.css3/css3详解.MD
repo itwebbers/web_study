@@ -170,7 +170,15 @@ sup {
    - 选择符级Hack：
     > 比如IE6能识别*html .class{}，IE7能识别*+html .class{}或者*:first-child+html .class{}
    - IE条件注释Hack：
-    > IE条件注释是微软从IE5开始就提供的一种非标准逻辑语句。比如针对所有IE：<!–[if IE]><!–您的代码–><![endif]–>，针对IE6及以下版本：<!–[if lt IE 7]><!–您的代码–><![endif]–>
+    > IE条件注释是微软从IE5开始就提供的一种非标准逻辑语句。比如针对所有IE：
+    ```html
+        <!–[if IE]><!–您的代码–><![endif]–>
+    ```
+    
+    > 针对IE6及以下版本：
+    ```html
+        <!–[if lt IE 7]><!–您的代码–><![endif]–>
+    ```
 3. 各浏览器hack写法
    - Firefox
 ```css
@@ -182,7 +190,8 @@ sup {
 ```
    - chrome and safari
 ```css
-@media screen and (-webkit-min-device-pixel-ratio:0){     Selector { 
+@media screen an (-webkit-min-device-pixel-ratio:0){     
+    Selector { 
         property: value;
     } 
 }
@@ -221,7 +230,19 @@ sup {
 ```
    - 
 
-## 三. 主要讲解以下常用模块
+### 三. 浏览器引擎前缀
+
+> 浏览器引擎前缀: 是一些放在css属性前的字符串,主要是对特定的浏览器渲染引擎进行识别
+1. 常见的浏览器引擎前缀
+    - `-moz-     /* 火狐等使用Mozilla浏览器引擎的浏览器 */`
+    - `-webkit-  /* Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */`
+    - `-o-       /* Opera浏览器(早期) */ `
+    - `-ms-      /* Internet Explorer (不一定) */`
+2. 两种方式,自动添加css前缀
+   - vs code安装 `AuotPrefixer` 具体使用很简单,自行看文档 
+   - 如果你使用的是gulp/rollup/webpack/parsoul,请查看对应的loader `AuotPrefixer`,具体文档的话配置很简单
+
+### 四. 主要讲解以下常用模块
 
 1. css3选择器
 2. css3媒体查询
@@ -229,10 +250,12 @@ sup {
 4. css3 过渡-transition
 5. css3 动画-animation
 
-#### 四. 推荐css3的学习网站
+#### 五. 推荐css3的学习网站
 
 1. [Animate.css 动画](https://daneden.github.io/animate.css/)
 2. [css-HACKS](http://browserhacks.com/)
 3. [css 兼容性查询](https://caniuse.com/)
 4. [菜鸟教程-css3篇](https://www.runoob.com/css3/css3-tutorial.html)
 5. [CSS3样式生成器-Css3演示](https://www.html.cn/tool/css3Preview/Transform.html)
+6. [Example animations](http://waitanimate.wstone.io/#!/)
+7. [CSS 禅意花园](http://www.mezzoblue.com/zengarden/alldesigns/)

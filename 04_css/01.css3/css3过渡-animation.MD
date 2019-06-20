@@ -190,12 +190,28 @@ sup {
 ```
 2. 配置动画
    - animation-delay : 设置延迟执行动画的时间
+    `0s 是默认值,表示动画应用到元素后立马执行; 定义值可以是s/ms`
    - animation-direction : 设置动画是否反向运行或者回到开始位置
+    `normal: 每个循环内动画向前循环,每个动画结束,自动重置到起点`
+    `alternate: 动画交替反向运行,动画会按步后退`
+    `reverse: 反向运动动画`
+    `alternate-reverse: 反向交替运动动画,反向开始交替`
    - animation-duration : 设置动画执行的周期
    - animation-iteration-count : 设置动画是否重复执行 
+    `infinite: 无限循环; <number>: 设置播放的次数`
    - animation-name : 指定@keyframes命名的动画关键帧
    - animation-play-state : 允许暂停和恢复动画
+    `running: 当前动画正在运行; paused: 当前动画可以被停止`
    - animation-timing-function : 设置动画过渡的曲线方式
+    `ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end`
    - animation-fill-mode : 指定动画执行前后如何为目标元素应用样式。
+    `none: 当动画未执行时，动画将不会将任何样式应用于目标`
+    `forwards: 目标将保留由执行期间遇到的最后一个关键帧计算值`
+    `backwards: 动画将在应用于目标时立即应用第一个关键帧中定义的值，并在animation-delay期间保留此值`
+    `both: 动画将遵循forwards和backwards的规则，从而在两个方向上扩展动画属性`
 3. 实现几个常见示例
   > 详情见: animation.html 
+
+4. 简要介绍几个animation的奇淫妙计
+   - 页面跳转,如果不设置动画,会显得很僵硬
+   - 加载状态/进度条的组件,不再用js迁就

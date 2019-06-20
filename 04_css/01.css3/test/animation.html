@@ -101,6 +101,107 @@
       </div>
       <div class="cylon_eye"></div>
   </section>
+  <h1>轮播图</h1>
+  <style>
+    .slider {
+      position: relative;
+      width: 500px;
+      height: 300px;
+      background-color: #fff;
+    }
+    .slider:hover .silider-item {
+      animation-play-state: paused;
+    }
+    .silider-item {
+      font-size: 30px;
+      line-height: 300px;
+      color: #ffffff;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      animation: ani 6s infinite linear both;
+    }
+    .silider-item:nth-child(1) {
+      animation-delay: 0s;
+      background-color: skyblue;
+    }
+    .silider-item:nth-child(2) {
+      animation-delay: 2s;
+      background-color: purple;
+    }
+    .silider-item:nth-child(3) {
+      animation-delay: 4s;
+      background-color: red;
+    }
+
+    @keyframes ani {
+      0%, 33.33% {
+        opacity: 1;
+        visibility: visible;
+      }
+      33.34%, 100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+  <section class="slider">
+    <div class="silider-item">slider1</div>
+    <div class="silider-item">slider2</div>
+    <div class="silider-item">slider3</div>
+  </section>
+
+  <h1>多元素动画</h1>
+  <style>
+    .list__item {
+      width: 50px;
+      height: 50px;
+      background: red;
+      border-radius: 50%;
+      margin-right: 10px;
+      float: left;
+      animation: listAni 1s ease both;
+    }
+
+    @keyframes listAni {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .list__item:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .list__item:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .list__item:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .list__item:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .list__item:nth-child(5) {
+      animation-delay: 0.8s;
+    }
+  </style>
+  <div class="list">
+    <div class="list__item"></div>
+    <div class="list__item"></div>
+    <div class="list__item"></div>
+    <div class="list__item"></div>
+    <div class="list__item"></div>
+  </div>
   <script>
     location.hash = 'menu';
   </script>
