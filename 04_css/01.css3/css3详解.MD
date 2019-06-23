@@ -155,10 +155,22 @@ sup {
 
 # 一. css3详解
 
-> 讲解之前，先吹牛;css3，写之简单，用之谨慎,考虑兼容性问题；对于后端来说css可能是比较蛋疼的问题，但是css恰巧又是前端的一块砖；一个主要的作用就是减少js的操作
+> CSS3 是层叠样式表（Cascading Style Sheets）语言的最新版本，旨在扩展CSS2.1；
+> 讲解之前，先吹牛;css3，写之简单，用之谨慎,考虑优雅降级问题；为什么这么说，是因为我们下面讲的大部分新特性都属于w3c纳入标准前的待改善模块，当然大部分浏览器也都及时的响应并实现和支持。对于服务打端开发者来说css可能是比较蛋疼的问题，但是css恰巧又是前端的一块砖；其主要用途就是强化css用以结构化文档；简单的比喻就是：css就相当于人的衣服，而css3就是化妆品。
 
+- 先看看今天培训的案例演示
 
-## 二. css hack
+## 二. 主要讲解以下常用模块
+
+1. css3选择器
+2. css3媒体查询
+3. css3文本特效
+4. css3 过渡-transition
+5. css3 动画-animation
+6. css3 flex-布局
+7. sass 简单书写
+
+## 三. css hack `此部分主要是方便大家更加认知css3`
 
 > 写css样式的时候，恐怕最头疼的就是各个浏览器下的兼容性问题，即css hack，不同的浏览器对css的解析结果是不同的，因此会导致相同的css输出的页面效果不同，这就需要css hack来解决浏览器局部的兼容性问题。使用css、 hack将会使用你的css代码部分失去作用，然后借助条件样式，使用其原css代码在一些浏览器解析，而css hack代码在符合条件要求的浏览器中替代原css那部分代码。
 
@@ -172,7 +184,25 @@ sup {
    - IE条件注释Hack：
     > IE条件注释是微软从IE5开始就提供的一种非标准逻辑语句。比如针对所有IE：
     ```html
+        <!-- 语法 -->
         <!–[if IE]><!–您的代码–><![endif]–>
+
+        <!-- 常用的html5shiv -->
+        [if lt IE9]> <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script> <![endif]
+
+        <!-- 检测当前IE浏览器的版本 -->
+        <!––[if IE]>
+            <h1>您正在使用IE浏览器</h1>        <!––[if IE 5]>
+                <h2>版本 5</h2>        <![endif]––>
+            <!––[if IE 5.0]>
+                <h2>版本 5.0</h2>        <![endif]––>
+            <!––[if IE 5.5]>
+                <h2>版本 5.5</h2>        <![endif]––>
+            <!––[if IE 6]>
+                <h2>版本 6</h2>        <![endif]––>
+            <!––[if IE 7]>
+                <h2>版本 7</h2>        <![endif]––>
+        <![endif]––>
     ```
     
     > 针对IE6及以下版本：
@@ -230,7 +260,7 @@ sup {
 ```
    - 
 
-### 三. 浏览器引擎前缀
+### 四. 浏览器引擎前缀
 
 > 浏览器引擎前缀: 是一些放在css属性前的字符串,主要是对特定的浏览器渲染引擎进行识别
 1. 常见的浏览器引擎前缀
@@ -242,15 +272,11 @@ sup {
    - vs code安装 `AuotPrefixer` 具体使用很简单,自行看文档 
    - 如果你使用的是gulp/rollup/webpack/parsoul,请查看对应的loader `AuotPrefixer`,具体文档的话配置很简单
 
-### 四. 主要讲解以下常用模块
 
-1. css3选择器
-2. css3媒体查询
-3. css3文本特效
-4. css3 过渡-transition
-5. css3 动画-animation
 
 #### 五. 推荐css3的学习网站
+
+> 这里只是打开url简单介绍，`感兴趣的同学可以自行研究`
 
 1. [Animate.css 动画](https://daneden.github.io/animate.css/)
 2. [css-HACKS](http://browserhacks.com/)

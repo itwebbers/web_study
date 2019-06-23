@@ -13,9 +13,21 @@ taga:
 
 > sass css 预编译器，是由按强化 css 的工具。
 
+- 讲解之前先教大家如何使用vs code编译sass
+> 安装两个插件
+
++ Sass
++ Easy Sass
++ Sass Lint （`感兴趣的同学可以试试`）
+
+- 使用Ruby编译 
+
++ [安装教程](https://www.sass.hk/install/),`这里感兴趣的同学可以自行研究，由于过程繁琐，这里不做具体的演示`
+> sass基于Ruby语言开发而成，因此安装sass前需要安装Ruby
+
 ## sass 特点
 
-1. 完美兼容 css3
+1. 完美兼容 css及css3
 2. 在 css 基础上增加了`变量`，`嵌套（nesting）`,`混合（mixins）`,`导入（import）`;
 3. 通过函数进行颜色值与属性值的计算
 4. 提供控制指令等高级功能
