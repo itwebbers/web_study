@@ -8,14 +8,18 @@
 hide(document.querySelectorAll('img'))
 ```
 
-2. 如何检查元素是否具有指定的类？页面DOM里的每个节点上都有一个classList对象，程序员可以使用里面的方法新增、删除、修改节点上的CSS类。使用classList，程序员还可以用它来判断某个节点是否被赋予了某个CSS类。const hasClass = (el, className) => el.classList.contains(className)
+2. 如何检查元素是否具有指定的类？
 ```JavaScript
+// 页面DOM里的每个节点上都有一个classList对象，程序员可以使用里面的方法新增、删除、修改节点上的CSS类。
+// 使用classList，程序员还可以用它来判断某个节点是否被赋予了某个CSS类。
+const hasClass = (el, className) => el.classList.contains(className)
 // 事例
 hasClass(document.querySelector('p.special'), 'special') // true
 ```
 
-3. 如何切换一个元素的类?const toggleClass = (el, className) => el.classList.toggle(className)
+3. 如何切换一个元素的类?
 ```JavaScript
+const toggleClass = (el, className) => el.classList.toggle(className)
 // 事例 移除 p 具有类`special`的 special 类
 toggleClass(document.querySelector('p.special'), 'special')
 ```
@@ -44,9 +48,9 @@ const scrollToTop = () => {
 
 // 事例
 scrollToTop()window.requestAnimationFrame() 
-告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
-该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
-requestAnimationFrame：优势：由系统决定回调函数的执行时机。60Hz的刷新频率，那么每次刷新的间隔中会执行一次回调函数，不会引起丢帧，不会卡顿。
+// 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
+// 该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+// requestAnimationFrame：优势：由系统决定回调函数的执行时机。60Hz的刷新频率，那么每次刷新的间隔中会执行一次回调函数，不会引起丢帧，不会卡顿。
 ```
 
 6. 如何检查父元素是否包含子元素？
@@ -140,8 +144,7 @@ formToObject(document.querySelector('#form'));
 ```JavaScript
 const get = (from, ...selectors) =>
   [...selectors].map(s =>
-    s
-      .replace(/\[([^\[\]]*)\]/g, '.$1.')
+    s.replace(/\[([^\[\]]*)\]/g, '.$1.')
       .split('.')
       .filter(t => t !== '')
       .reduce((prev, cur) => prev && prev[cur], from)
@@ -174,7 +177,8 @@ const triggerEvent = (el, eventType, detail) =>
 
 // 事例
 triggerEvent(document.getElementById('myId'), 'click');
-triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });自定义事件的函数有 Event、CustomEvent 和 dispatchEvent// 向 window派发一个resize内置事件
+triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });
+// 自定义事件的函数有 Event、CustomEvent 和 dispatchEvent // 向 window派发一个resize内置事件
 window.dispatchEvent(new Event('resize'))
  
 
