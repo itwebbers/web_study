@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "app-root-path": "^2.2.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "mssql": "^5.1.0",
     "nodemon": "^1.19.1",
     "qs": "^6.8.0",
